@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         val apiService = MovieApiService.getInstance().create(MovieApiInterface:: class.java)
         apiService.getMovieList().enqueue(object : Callback<MovieResponse>{
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                TODO("Not yet implemented")
+                return callback(response.body()!!.movies)
             }
 
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
 
         })
