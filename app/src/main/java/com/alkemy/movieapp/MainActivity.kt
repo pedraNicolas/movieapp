@@ -1,7 +1,9 @@
 package com.alkemy.movieapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,12 +12,15 @@ import com.alkemy.movieapp.models.Movie
 import com.alkemy.movieapp.models.MovieResponse
 import com.alkemy.movieapp.services.MovieApiInterface
 import com.alkemy.movieapp.services.MovieApiService
+import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+var item2:String="popular"
 class MainActivity : AppCompatActivity(),AdapterView.OnItemClickListener {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,9 +64,10 @@ class MainActivity : AppCompatActivity(),AdapterView.OnItemClickListener {
         }
     }
 
+
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
     {
         val item = parent?.getItemAtPosition(position).toString()
-
+        item2=item
     }
 }
