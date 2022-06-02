@@ -1,13 +1,5 @@
 <resources>
     <string name="app_name">movieapp</string>
 
-    //DropDownItems
 
-    <string-array name="movies">
-        <item>Latest</item>
-        <item>Popular</item>
-        <item>Now Playing</item>
-        <item>Top Rated</item>
-        <item>Upcoming</item>
-    </string-array>
 </resources>

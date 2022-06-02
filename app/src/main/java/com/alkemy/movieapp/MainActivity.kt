@@ -1,73 +1,68 @@
 package com.alkemy.movieapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcelable
-import android.view.View
-import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.alkemy.movieapp.databinding.ActivityMainBinding
 import com.alkemy.movieapp.models.Movie
 import com.alkemy.movieapp.models.MovieResponse
-import com.alkemy.movieapp.services.MovieApiInterface
-import com.alkemy.movieapp.services.MovieApiService
-import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import com.alkemy.movieapp.services.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.coroutines.EmptyCoroutineContext.get
 
-var item2:String="popular"
-class MainActivity : AppCompatActivity(),AdapterView.OnItemClickListener {
-    private lateinit var binding: ActivityMainBinding
+    class MainActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        getListMovies()
-
+        setContentView(R.layout.activity_main)
 
         rvMovieList.layoutManager = LinearLayoutManager(this)
         rvMovieList.setHasFixedSize(true)
-        getMovieData { movies: List<Movie> ->
-            rvMovieList.adapter = MovieAdapter(movies)
 
+        getMovieData("popular"){ movies: List<Movie> ->
+            rvMovieList.adapter = MovieAdapter(movies)
+        }
+                    //Botones
+        //Popular
+        popularBtn.setOnClickListener{
+            getMovieData("popular"){ movies: List<Movie> ->
+                rvMovieList.adapter = MovieAdapter(movies)
+            }
+        }
+        //Latest NO FUNCIONA
+        //Now Playing
+        topRatedBtn.setOnClickListener{
+            getMovieData("top_rated"){ movies: List<Movie> ->
+                rvMovieList.adapter = MovieAdapter(movies)
+            }
+        }
+        //Now Playing
+        nowPlayingBtn.setOnClickListener{
+            getMovieData("now_playing"){ movies: List<Movie> ->
+                rvMovieList.adapter = MovieAdapter(movies)
+            }
+        }
+        //Upcoming
+        upcomingBtn.setOnClickListener{
+            getMovieData("upcoming"){ movies: List<Movie> ->
+                rvMovieList.adapter = MovieAdapter(movies)
+            }
         }
     }
 
-    private fun getMovieData(callback: (List<Movie>) -> Unit){
-        val apiService = MovieApiService.getInstance().create(MovieApiInterface:: class.java)
-        apiService.getMovieList().enqueue(object : Callback<MovieResponse>{
+    private fun getMovieData(id:String,callback: (List<Movie>) -> Unit) {
+        val apiService = MovieApiService.getInstance().create(MoviePopularInterface::class.java)
+        apiService.getMovieList(id).enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 return callback(response.body()!!.movies)
             }
-
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
 
             }
 
         })
     }
-    private fun getListMovies() {
-        val movies = resources.getStringArray(R.array.movies)
-        val adapter = ArrayAdapter(
-            this,
-            R.layout.list_item,
-            movies
-        )
-        with(binding.autoCompleteTextView) {
-            setAdapter(adapter)
-            onItemClickListener = this@MainActivity
-        }
-    }
-
-
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
-    {
-        val item = parent?.getItemAtPosition(position).toString()
-        item2=item
-    }
 }
+
+

@@ -32,22 +32,66 @@
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                app:boxBackgroundMode="outline">
+                android:orientation="vertical">
 
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTextView"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:text="Popular"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/popularBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Popular"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        app:boxBackgroundMode="outline" />
+
+                    <Button
+                        android:id="@+id/topRatedBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:text="Top Rated"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        app:boxBackgroundMode="outline" />
+
+                    <Button
+                        android:id="@+id/nowPlayingBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:text="Now Playing"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        app:boxBackgroundMode="outline" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/upcomingBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:text="Upcoming"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    app:boxBackgroundMode="outline" />
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMovieList"
@@ -56,6 +100,7 @@
                 android:layout_marginTop="16dp" >
 
             </androidx.recyclerview.widget.RecyclerView>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

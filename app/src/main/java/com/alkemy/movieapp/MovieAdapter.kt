@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alkemy.movieapp.models.Movie
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.with
+
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieAdapter (
@@ -18,7 +20,9 @@ class MovieAdapter (
         fun bindMovie(movie: Movie){
             itemView.movie_title.text =movie.title
             itemView.movie_release_date.text=movie.release_date
-            Glide.with(itemView).load(IMAGE_BASE + movie.poster_path).into(itemView.movie_poster)
+            Glide.with(itemView)
+                .load(IMAGE_BASE + movie.poster_path)
+                .into(itemView.movie_poster)
         }
     }
 
