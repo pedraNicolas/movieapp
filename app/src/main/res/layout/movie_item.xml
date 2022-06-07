@@ -11,7 +11,7 @@
     android:background="@color/dark_grey">
 
     <ImageView
-        android:id="@+id/movie_poster"
+        android:id="@+id/moviePoster"
         android:layout_width="300px"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -21,7 +21,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/movie_title"
+        android:id="@+id/movieTitle"
         android:layout_width="229dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -33,11 +33,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/movie_poster"
+        app:layout_constraintStart_toEndOf="@+id/moviePoster"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/movie_release_date"
+        android:id="@+id/movieReleaseDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -45,6 +45,6 @@
         android:text="Release Date"
         android:textColor="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/movie_poster"
-        app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+        app:layout_constraintStart_toEndOf="@+id/moviePoster"
+        app:layout_constraintTop_toBottomOf="@+id/movieTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
