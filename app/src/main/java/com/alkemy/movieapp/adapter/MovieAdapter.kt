@@ -3,6 +3,7 @@ package com.alkemy.movieapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import com.alkemy.movieapp.R
 import com.alkemy.movieapp.models.Movie
 
