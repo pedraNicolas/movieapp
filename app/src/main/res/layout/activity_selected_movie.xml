@@ -53,6 +53,59 @@
                     android:textColor="@color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="vote:  "
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="italic" />
+                    <ImageView
+                        android:id="@+id/oneStars"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:id="@+id/twoStars"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:id="@+id/threeStars"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:id="@+id/fourStars"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:id="@+id/fiveStars"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -79,7 +132,8 @@
             android:layout_height="wrap_content"
             android:text="Overview Text"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="16sp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 
