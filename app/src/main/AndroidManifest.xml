@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Movieapp"
         tools:targetApi="31">
         <activity
+            android:name=".views.AboutMe"
+            android:exported="false" />
+        <activity
             android:name=".views.SelectedMovie"
             android:exported="false" />
         <activity

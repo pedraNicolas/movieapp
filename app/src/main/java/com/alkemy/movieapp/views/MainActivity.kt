@@ -84,33 +84,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             setAdapter(categoriesAdapter)
             onItemClickListener = this@MainActivity
         }
-
-        //        /*Botones*/
-//        //Popular
-//        popularBtn.setOnClickListener {
-//            page=1
-//            pageId = "popular"
-//            button(pageId,page)
-//        }
-//        //Latest NO FUNCIONA
-//        //Now Playing
-//        topRatedBtn.setOnClickListener {
-//            page=1
-//            pageId = "top_rated"
-//            button(pageId,page)
-//        }
-//        //Now Playing
-//        nowPlayingBtn.setOnClickListener {
-//            page=1
-//            pageId = "now_playing"
-//            button(pageId,page)
-//        }
-//        //Upcoming
-//        upcomingBtn.setOnClickListener {
-//            page=1
-//            pageId = "upcoming"
-//            button(pageId,page)
-//        }
         nextBtn.setOnClickListener {
             page++
             Cache.moviesMap.remove(pageId)
@@ -124,6 +97,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             }
             Cache.moviesMap.remove(pageId)
             button(pageId, page)
+        }
+        aboutMeTextView.setOnClickListener(){
+            intent = Intent (this@MainActivity,AboutMe::class.java ).apply { }
+            startActivity(intent)
         }
         super.onResume()
     }
